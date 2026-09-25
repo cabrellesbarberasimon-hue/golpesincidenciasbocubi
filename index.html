@@ -1,4 +1,13 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Análisis de Golpes</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#172033">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -54,6 +63,10 @@ header.top{background:var(--ink);color:var(--ground)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header.top{background:var(--surface);color:var(--ink)}}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-block:14px}
 .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand .logo{width:38px;height:38px;flex:none;align-self:center;color:currentColor}
+.brand .logo .cut{fill:var(--ink)}
+:root[data-theme="dark"] .brand .logo .cut{fill:var(--surface)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand .logo .cut{fill:var(--surface)}}
 .brand h1{font:700 26px/1 var(--f-display);letter-spacing:.02em;margin:0;text-transform:uppercase}
 .brand span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 .period{margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
@@ -178,10 +191,12 @@ label.f.wide{grid-column:1/-1}
 .empty{padding:40px 16px;text-align:center;color:var(--ink-3)}
 @media (prefers-reduced-motion:no-preference){.drawer{animation:slide .18s ease-out}@keyframes slide{from{transform:translateX(24px);opacity:.6}}}
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
-    <div class="brand"><h1>Análisis de Golpes</h1><span>Artículos golpeados en transporte</span></div>
+    <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g fill="currentColor"><rect x="2" y="19" width="16" height="4" rx="2"/><rect x="6" y="27" width="12" height="4" rx="2"/><rect x="0" y="35" width="18" height="4" rx="2"/><rect x="16" y="13" width="28" height="30" rx="3"/><path d="M46 22h8.5a2 2 0 0 1 1.5.7l7.5 9V43a2 2 0 0 1-2 2H46z"/><circle cx="25" cy="47" r="7"/><circle cx="53" cy="47" r="7"/></g><g class="cut"><path d="M49 25.5h5l5.2 6.5H49z"/><circle cx="25" cy="47" r="4.2"/><circle cx="53" cy="47" r="4.2"/></g><g fill="currentColor"><circle cx="25" cy="47" r="2.2"/><circle cx="53" cy="47" r="2.2"/></g></svg><h1>Análisis de Golpes</h1><span>Artículos golpeados en transporte</span></div>
     <div class="period">
       <label for="perSel">Periodo · fecha albarán</label>
       <select id="perSel">
@@ -760,3 +775,5 @@ render(true);
 store.init();
 })();
 </script>
+</body>
+</html>
